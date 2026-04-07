@@ -172,6 +172,10 @@ collections:
     output: true
     sort_by: order
 
+  projects: # new collection for project showcasing
+    output: true
+    permalink: /projects/:name/
+
 defaults:
   - scope:
       path: "" # An empty string here means all files in the project
