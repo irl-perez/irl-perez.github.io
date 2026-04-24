@@ -6,22 +6,31 @@ layout: page
 excerpt: ""
 ---
 
-<div class="projects-grid">
+<div id="post-list" class="flex-grow-1 px-xl-1">
   {% for project in site.projects %}
-    <article class="project-card">
-      <h2 class="project-title">
-        <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
-      </h2>
+    <article class="card-wrapper card">
+      <a href="{{ project.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
+        <div class="col-md-12">
+          <div class="card-body d-flex flex-column">
+            <h1 class="card-title my-2 mt-md-0">{{ project.title }}</h1>
 
-      {% if project.description %}
-        <p class="project-description">{{ project.description }}</p>
-      {% endif %}
+            {% if project.description %}
+              <div class="card-text content mt-0 mb-3">
+                <p>{{ project.description }}</p>
+              </div>
+            {% endif %}
 
-      {% if project.tech %}
-        <p class="project-tech">
-          <strong>Tech:</strong> {{ project.tech | join: ", " }}
-        </p>
-      {% endif %}
+            {% if project.tech %}
+              <div class="post-meta flex-grow-1 d-flex align-items-end">
+                <div class="me-auto">
+                  <i class="fas fa-code fa-fw me-1"></i>
+                  <span>{{ project.tech | join: ", " }}</span>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </a>
     </article>
   {% endfor %}
 </div>
