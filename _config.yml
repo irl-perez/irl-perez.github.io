@@ -114,6 +114,18 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _portfolio / projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      shared: true
+      related: true
+      show_date: true
 
 category_archive:
   type: liquid
@@ -121,3 +133,8 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
