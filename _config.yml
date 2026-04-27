@@ -16,7 +16,7 @@
 title: Progress with Perez | What's next?
 email: oscar.perez19197ja@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Data professional based in the Chicagoland area who is always learning and exploring new opportunities to grow.
+  Welcome to my portfolio, Progress with Perez! I showcase a lot of my projects here and try to walk you through the whole process!
 twitter_username: NA
 github_username: irl-perez
 minimal_mistakes_skin: dark
@@ -64,7 +64,7 @@ plugins:
 author:
   name   : "Oscar Perez"
   avatar : "/assets/images/avatar.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Data professional based in the Chicagoland area who is always learning and exploring new opportunities to grow."
   links:
     # - label: "Website"
     #   icon: "fas fa-fw fa-link"
