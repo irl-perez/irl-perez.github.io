@@ -1,7 +1,7 @@
 ---
 title: "CSQ Call Volume Dashboard"
 excerpt: "The size of this project was massive. At first, what started as a verification check on the dashboard to ensure call numbers were accurate eventually turned into a complete check of our database ingestion system."
-date: 2024-11-26
+date: 2025-09-15
 header:
   #overlay_image: assets/images/csq-call-volume/csq-agent-call-volume-obf.jpg
   #caption: "Tableau CSQ Call Volume Dashboard"
@@ -59,56 +59,6 @@ gallery2:
 # Context
 \[REDACTED\] voiced her concern that the Tableau reports do not match (in metrics and numbers) those of Cisco Unified Intelligence Center.
 
-## Database Discrepancy 
-When I approached this project, I was made aware that my company had access to the Informix database via a "linked server". This database contains the call records we were interested in.
-
-In our SQL Server database, there was a job that looked for new records and collected them every 5 minutes into a local instance. Through investigation, I realized that the numbers were inaccurate and that collecting records every five minutes may not be enough time for the records to settle.
-
-{% include figure popup=true image_path="assets/images/csq-call-volume/database-discrepancy-obf.jpg" alt="Database Discrepancy" %}
-
-Instead, I suggested we run a daily extract rather than every five minutes.
-
-```sql
--- example of one job: 
-USE CiscoCallData
-
-DECLARE 
-	@currentDate VARCHAR(30)
-	,@startTimeGMT VARCHAR(30)
-	,@stopTimeGMT VARCHAR(30)
-	,@TSQL varchar(8000);
-
-SELECT
-	@currentDate = CAST(GETDATE() AS DATE)
-	,@startTimeGMT = CONVERT(NVARCHAR,CAST(DATEADD(day,-1,@currentDate) AT TIME ZONE 'Central Standard Time' AT TIME ZONE 'UTC' AS DATETIME),121)
-	,@stopTimeGMT = CONVERT(NVARCHAR,CAST(CAST(@currentDate AS DATETIME) AT TIME ZONE 'Central Standard Time' AT TIME ZONE 'UTC' AS DATETIME),121)
-
-SELECT 
-	@currentDate AS currentDate
-	,@startTimeGMT AS startTimeGMT
-	,@stopTimeGMT AS stopTimeGMT
-
-SET @TSQL = 'INSERT INTO 
-				ContactCallDetail
-			SELECT		
-				-- field selection
-			FROM OpenQuery(UCCX1,''SELECT
-										-- field selection from IBM DB
-									FROM contactcalldetail
-									WHERE startDateTime >=  ''''' + @startTimeGMT + '''''
-										AND startDateTime < ''''' + @stopTimeGMT + '''''
-									ORDER BY startDateTime ASC
-							''); '
-EXEC(@TSQL)
-```
-After deleting and reinserting records, this proved successful!
-
-{% include figure popup=true image_path="assets/images/csq-call-volume/database-compare-new-and-old-obf.jpg" alt="Comparing old and new records" %}
-
-After ensuring the database was reflecting accurate information, it took more creative thinking to mimic Cisco's Finesse Reporting numbers. Through trial and error and data validation, this was also successful.
-
-{% include gallery id="gallery1" caption="Comparing internal Tableau dashboard against Finesse's reporting tool." %}
-
 # How does it work?
 The Finesse reports use an Informix Database. \[REDACTED\] and \[REDACTED\] are unable to access this database directly. Instead we decided to host a copy of the necessary components on our instance of `\[REDACTED\]`, under the `\[REDACTED\]` database. 
 
@@ -158,4 +108,52 @@ Nothing to comment here.
 Nothing to comment here. 
 
 # Technical Information
-## 
+## Database Discrepancy 
+When I approached this project, I was made aware that my company had access to the Informix database via a "linked server". This database contains the call records we were interested in.
+
+In our SQL Server database, there was a job that looked for new records and collected them every 5 minutes into a local instance. Through investigation, I realized that the numbers were inaccurate and that collecting records every five minutes may not be enough time for the records to settle.
+
+{% include figure popup=true image_path="assets/images/csq-call-volume/database-discrepancy-obf.jpg" alt="Database Discrepancy" %}
+
+Instead, I suggested we run a daily extract rather than every five minutes.
+
+```sql
+-- example of one job: 
+USE CiscoCallData
+
+DECLARE 
+	@currentDate VARCHAR(30)
+	,@startTimeGMT VARCHAR(30)
+	,@stopTimeGMT VARCHAR(30)
+	,@TSQL varchar(8000);
+
+SELECT
+	@currentDate = CAST(GETDATE() AS DATE)
+	,@startTimeGMT = CONVERT(NVARCHAR,CAST(DATEADD(day,-1,@currentDate) AT TIME ZONE 'Central Standard Time' AT TIME ZONE 'UTC' AS DATETIME),121)
+	,@stopTimeGMT = CONVERT(NVARCHAR,CAST(CAST(@currentDate AS DATETIME) AT TIME ZONE 'Central Standard Time' AT TIME ZONE 'UTC' AS DATETIME),121)
+
+SELECT 
+	@currentDate AS currentDate
+	,@startTimeGMT AS startTimeGMT
+	,@stopTimeGMT AS stopTimeGMT
+
+SET @TSQL = 'INSERT INTO 
+				ContactCallDetail
+			SELECT		
+				-- field selection
+			FROM OpenQuery(UCCX1,''SELECT
+										-- field selection from IBM DB
+									FROM contactcalldetail
+									WHERE startDateTime >=  ''''' + @startTimeGMT + '''''
+										AND startDateTime < ''''' + @stopTimeGMT + '''''
+									ORDER BY startDateTime ASC
+							''); '
+EXEC(@TSQL)
+```
+After deleting and reinserting records, this proved successful!
+
+{% include figure popup=true image_path="assets/images/csq-call-volume/database-compare-new-and-old-obf.jpg" alt="Comparing old and new records" %}
+
+After ensuring the database was reflecting accurate information, it took more creative thinking to mimic Cisco's Finesse Reporting numbers. Through trial and error and data validation, this was also successful.
+
+{% include gallery id="gallery1" caption="Comparing internal Tableau dashboard against Finesse's reporting tool." %}
