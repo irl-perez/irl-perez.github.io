@@ -1,14 +1,15 @@
 ---
 title: "Smart Form Dashboard"
 excerpt: "The goal of this project was to gain insight and audit “smart forms”. Smart forms are template documents that staff can use when communicating with hospitals, clinics, and patients."
-date: 2024-11-26
+date: 2025-09-15
 header:
   teaser: assets/images/smart-form-dashboard/main-obfuscated.jpg
-gallery:
-  - url: assets/images/smart-form-dashboard/main-obfuscated.jpg
-    image_path: assets/images/smart-form-dashboard/main-obfuscated.jpg
-    alt: "Smartform dashboard."
 classes: wide
+tags:
+  - tableau
+  - dashboard
+  - sql
+  - real work
 ---
 
 # Context
@@ -19,6 +20,8 @@ The report will run on the OMS reporting server (meaning the data will be one da
 - Only active smart forms are included.
 - Where the smart form created date is between yesterday and 60 days before yesterday (inclusive).
 
+# Dashboard
+This single dashboard provides information for users to see smart forms by location, by user, and by form name.
 {% include figure popup=true image_path="assets/images/smart-form-dashboard/main-obfuscated.jpg" alt="Smartform Dashboard" caption="Smartform Dashboard." %}
 
 # Technical Information
