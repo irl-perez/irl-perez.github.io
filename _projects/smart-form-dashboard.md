@@ -1,15 +1,16 @@
 ---
 title: "Smart Form Dashboard"
 excerpt: "The goal of this project was to gain insight and audit “smart forms”. Smart forms are template documents that staff can use when communicating with hospitals, clinics, and patients."
-date: 2025-09-15
+date: 2024-11-26
 header:
   teaser: assets/images/smart-form-dashboard/main-obfuscated.jpg
 classes: wide
 tags:
   - tableau
-  - dashboard
   - sql
   - real work
+  - oms
+  - healthcare
 ---
 
 # Context
@@ -30,7 +31,7 @@ This select handles joining our `SmartFormData` with any relevant information.
 
 When investigated, the location had two possible fields:
 - `Facility` which is a list of "locations" that the user has access to within OMS. This field is found in the `Users` table. I do not recommend using this field because it takes the first option selected in OMS as it appears.
-- `Default Facility`: This is the preferred field. I spoke to [REDACTED], and she described this field as the "location they belong to." When looking at this field, there are only three options:
+- `Default Facility`: This is the preferred field. I spoke to REDACTED, and she described this field as the "location they belong to." When looking at this field, there are only three options:
 	- A valid facility
 	- 0: 0 meant the field was unassigned in OMS. The OMS team can update this field.
 	- NULL: The null option reflects the fact that we don't have the "user" associated with the smart form; in other words, we don't know who created it. I noticed a couple of records posted on or after 10/22/2024 that still reported not having the user. If the problem persists, it may be worth reporting to the OMS development team for further investigation.

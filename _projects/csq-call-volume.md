@@ -9,9 +9,10 @@ header:
 classes: wide
 tags:
   - tableau
-  - dashboard
   - sql
   - real work
+  - cisco
+  - healthcare
 
 gallery1:
   - url: assets/images/csq-call-volume/csq-tableau-numbers-obf.jpg
@@ -57,7 +58,7 @@ gallery2:
 ---
 {% include figure popup=true image_path="assets/images/csq-call-volume/csq-agent-call-volume-obf.jpg" alt="Agent Call Volume Dashboard Example." %}
 # Context
-REDACTED voiced her concern that the Tableau reports do not match (in metrics and numbers) those of Cisco Unified Intelligence Center.
+Leadership member voiced her concern that the Tableau reports do not match (in metrics and numbers) those of Cisco Unified Intelligence Center.
 
 # How does it work?
 The Finesse reports use an Informix Database. REDACTED and REDACTED are unable to access this database directly. Instead we decided to host a copy of the necessary components on our instance of `REDACTED`, under the `REDACTED` database. 
