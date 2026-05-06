@@ -28,7 +28,7 @@ The current workflow includes a daily, repetitive task that requires manual data
 - Study Date: Is the date the order was scheduled for.
 
 # How does it work?
-Our current solutions use Microsoft "Task Scheduler" to run a custom PowerShell script that queries our OMS database. 
+Our current solutions use Microsoft "Task Scheduler" to run a custom PowerShell script that queries our EHR database. 
 
 The PowerShell script has a small Hash table that uses `LONIC` to link to test names. Here is a generalization of the script steps:
 1. Locate any CPOE orders that are scheduled for the current day.
