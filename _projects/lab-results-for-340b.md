@@ -50,7 +50,7 @@ The test name written above must appear exactly the same in the chart note.
 
 Additionally, the result options must be "positive" or "negative". Capitalization does not matter. If the script is unable to locate either of these, it returns the original value (the value it found on the next line):
 
-```PowerShell
+```powershell
 switch ($result.ToLower()) {
 	"positive" { return "Reactive" }
 	"negative" { return "Non-Reactive" }
@@ -64,13 +64,15 @@ In order to combat user error, the organization has created a copy-and-paste tem
 ## SQL Script Information
 The SQL script contains many hard-coded values. These values are typically not required by the state. Other values are identified through a CASE statement. 
 
-I spent time testing the EHR system to make sure this logic is correct. An example is the logic concerning "race" and the `GroupCode`. This was a faster approach than identifying how these tables are linked in the backend. 
+I spent time testing the EHR system to make sure this logic is correct. An example is the logic concerning "race" and the `GroupCode`. This was a faster approach than identifying how these tables are linked in the backend.
+
 ## `WHERE` condition
 The query locates CPOE orders where:
 - `StudyDate` equals the current date
 - The `TerminologyDescription` (name of the test) starts with [REDACTED].
 - The order is marked completed (`status = 3`).
 - Excluded "test" patients.
+
 ## Chart Note Subquery
 The chart note sub query finds only **one** chart note where:
 - The `PatientID` on the order matches the `PatientID` on the Chart note.
