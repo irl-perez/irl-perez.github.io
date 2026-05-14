@@ -72,6 +72,7 @@ author:
     - label: "LinkedIn"
       icon: "fa-brands fa-linkedin"
       url: "https://www.linkedin.com/in/irl-perez/"
+
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
     #   url: "https://twitter.com/"
@@ -81,12 +82,22 @@ author:
     # - label: "Instagram"
     #   icon: "fab fa-fw fa-instagram"
     #   url: "https://instagram.com/"
+    - label: "Credly"
+      icon: "fa-solid fa-certificate"
+      url: "https://www.credly.com/users/irl-perez"
+    - label: "Accredible"
+      icon: "fa-solid fa-certificate"
+      url: "https://www.credential.net/profile/irl-perez/wallet"
+
 
 footer:
   links:
     # - label: "Twitter"
     #   icon: "fab fa-fw fa-twitter-square"
     #   url: "https://twitter.com/"
+    - label: "LinkedIn"
+      icon: "fa-brands fa-linkedin"
+      url: "https://www.linkedin.com/in/irl-perez/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/irl-perez"
