@@ -40,6 +40,12 @@ date_format: "%Y-%m-%d"
 include:
   - _pages
 
+# adding analytics tracking:
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-QG7WGNRFJ0"
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
