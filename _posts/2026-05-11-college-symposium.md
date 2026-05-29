@@ -36,6 +36,13 @@ I prepared the following materials for the symposium; while many of these items 
 -	PowerPoint
 -	Field work in the form of a survey
 
+Below I've included just my field work from my research paper.
+
+<object data="{{ 'assets/documents/survey.pdf' | relative_url }}" width="100%" height="100px" type="application/pdf">
+    <p>Your browser does not support PDFs. <a href="{{ 'assets/documents/survey.pdf' | relative_url }}">Download the PDF</a>.</p>
+</object>
+
+
 Thankfully, the College of DuPage is hosting all of my presentation materials. These documents can be found at this link: [https://dc.cod.edu/srs/2026/schedule/27/](https://dc.cod.edu/srs/2026/schedule/27/). 
 
 My original research paper can be found by clicking the blue “Download” button. Other materials can be found under the "Additional Files" heading.
