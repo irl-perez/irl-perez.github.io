@@ -45,7 +45,7 @@ Below I've included just my field work from my research paper.
 
 Thankfully, the College of DuPage is hosting all of my presentation materials. These documents can be found at this link: [https://dc.cod.edu/srs/2026/schedule/27/](https://dc.cod.edu/srs/2026/schedule/27/). 
 
-My original research paper can be found by clicking the blue “Download” button. Other materials can be found under the "Additional Files" heading.
+My original research paper can be found by clicking on the title or by clicking the blue "Download" button. Other materials can be found under the "Additional Files" heading.
 
 # Personal Sentiment
 I'd like to preface this by saying I was extremely grateful for both Professor McGrath's and Christine Kickels' support throughout my writing process and the lead-up to the symposium. I truly appreciate the time and effort they invested in helping me develop my work and prepare for the event.
