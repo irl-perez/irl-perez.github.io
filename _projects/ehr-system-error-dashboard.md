@@ -23,7 +23,7 @@ gallery:
 ---
 
 # Context
-excerpt: "The IT manager would like a dashboard that provides insight into EHR generated error logs. The concern is that many staff members may not alert the IT team. This dashboard aims to track those errors and address them before they become a bigger issue."
+The IT manager would like a dashboard that provides insight into EHR generated error logs. The concern is that many staff members may not alert the IT team. This dashboard aims to track those errors and address them before they become a bigger issue.
 
 ## Terminology
 Within the error logs, there is a field called `Message` that contains multiple lines of information. That field is parsed to group each data record into a specific error. This field is known as `ErrorSource`.
