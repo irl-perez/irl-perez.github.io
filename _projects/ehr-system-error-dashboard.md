@@ -43,10 +43,10 @@ The initial dashboard shows an error in the user’s location and system group. 
 {% include gallery id="gallery" caption="Additional EHR Error Dashboards." %}
 
 # Technical Information
-{: .notice--info}
-**SQL Query Information:**
-It's worth noting that since the original error message is truncated, a user might need to go back and look at the database. To assist with this, there is a field in the query called `sqlQuery` that includes all fields and searches just for the current record. This query can be accessed through Tableau by downloading the "full data".
+
 ## SQL Script Information
+It's worth noting that since the original error message is truncated, a user might need to go back and look at the database. To assist with this, there is a field in the query called `sqlQuery` that includes all fields and searches just for the current record. This query can be accessed through Tableau by downloading the "full data".
+
 This report is similar to [PENDING UPDATE] takes that query and slightly modifies it. For details, see [PENDING UPDATE].
 
 ## Tableau Information
